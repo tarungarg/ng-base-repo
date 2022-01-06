@@ -1,0 +1,20 @@
+<div *ngIf="productLoading$ | async">Loading............</div>
+
+<div class="container" *ngIf="productsList$ | async as productsList">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">{{ productsList.length }} Products</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div
+      class="col-md-4 portfolio-item"
+      *ngFor="let product of productsList; index as i; trackBy: trackById"
+    >
+      <app-products-list [product]="product"></app-products-list>
+    </div>
+  </div>
+
+  <hr />
+</div>
